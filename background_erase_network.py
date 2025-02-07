@@ -8,6 +8,10 @@ import numpy as np
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(script_directory)
+
+import folder_paths
+checkpoint =os.path.join(folder_paths.models_dir,"ben2","BEN2_Base.pth")
+
 import BEN2
 
 class BackgroundEraseNetwork:
@@ -20,7 +24,7 @@ class BackgroundEraseNetwork:
     def __init__(self):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model = BEN2.BEN_Base().to(device).eval()
-        self.model.loadcheckpoints(os.path.join(script_directory, "BEN2_Base.pth"))
+        self.model.loadcheckpoints(checkpoint)
         self.to_pil = transforms.ToPILImage()
         self.to_tensor = transforms.ToTensor()
     
