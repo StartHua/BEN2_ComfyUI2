@@ -1,0 +1,8 @@
+huggingface_hub
+Image
+numpy
+torch
+einops
+Pillow
+timm>=1.0.10
+torchvision
